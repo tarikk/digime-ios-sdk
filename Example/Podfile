@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DigiMeFramework_Example' do
+  pod 'DigiMeFramework', :path => '../'
+
+  target 'DigiMeFramework_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

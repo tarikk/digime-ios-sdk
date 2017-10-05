@@ -1,0 +1,6 @@
+framework module DigiMeFramework {
+  umbrella header "DigiMeFramework-umbrella.h"
+
+  export *
+  module * { export * }
+}

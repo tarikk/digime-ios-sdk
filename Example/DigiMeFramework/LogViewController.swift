@@ -66,7 +66,7 @@ class LogViewController: UIViewController  {
     }
     
     func scrollToBottom() {
-        textView?.scrollRangeToVisible(NSRange(location: (textView?.text.count ?? 0), length: 0))
+        textView?.scrollRangeToVisible(NSRange(location: (textView?.text.characters.count ?? 0), length: 0))
         textView?.isScrollEnabled = false
         textView?.isScrollEnabled = true
     }
@@ -83,11 +83,8 @@ class LogViewController: UIViewController  {
         let dateString: String = formatter.string(from: now)
 
         DispatchQueue.main.async(execute: {() -> Void in
-
-            self.textView?.text = (self.textView?.text)! + ("""
-                \(dateString) \(logText)
-                
-                """)
+            let prevText = (self.textView?.text)!
+            self.textView?.text = (prevText + ("\n\(dateString) " + "\(logText) "))
 
             self.scrollToBottom()
         })
